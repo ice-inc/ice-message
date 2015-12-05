@@ -1,5 +1,11 @@
 == README
 
+signup時の確認メールを動かすのに環境変数の設定が必要
+
+config/environments/development.rb
+
+>config.action_mailer.smtp_settings
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

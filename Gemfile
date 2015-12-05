@@ -44,3 +44,5 @@ group :development do
 end
 
 gem 'mongoid'
+gem 'devise'
+gem 'omniauth-twitter'
