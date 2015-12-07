@@ -3,6 +3,8 @@ lock '3.4.0'
 
 set :application, 'ice_systems'
 set :repo_url, 'git@github.com:ice-inc/ice-message.git'
+set :rbenv_ruby, '2.2.3'
+set :rbenv_path, '/root/.rbenv/'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
