@@ -19,7 +19,7 @@
         <td><%= action_log.project.name %></td>
         <td><%= action_log.took_time %></td>
         <td><%= action_log.user.username %></td>
-        <td><%= action_log.created_at.strftime("%Y/%m/%d") %></td>
+        <td><%= action_log.target_date.strftime("%Y/%m/%d") %></td>
         <td><%= link_to 'Show', action_log %></td>
         <td><%= link_to 'Edit', edit_action_log_path(action_log) %></td>
         <td><%= link_to 'Destroy', action_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
