@@ -19,6 +19,10 @@
     <%= f.label :took_time %><br>
     <%= f.number_field :took_time, :class => '', :step => 0.5, :required => true %>
   </div>
+  <div class="field">
+    <%= f.label :target_date %><br>
+    <%= f.date_field :target_date, :class => '', :value => Date.today, :required => true %>
+  </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">
     <%= f.submit %>

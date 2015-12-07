@@ -71,6 +71,6 @@ class ActionLogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def action_log_params
-      params.require(:action_log).permit(:took_time, :user_id, :project_id)
+      params.require(:action_log).permit(:took_time, :user_id, :project_id, :target_date)
     end
 end
