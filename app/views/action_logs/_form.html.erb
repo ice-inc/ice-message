@@ -1,0 +1,26 @@
+<%= form_for(@action_log) do |f| %>
+  <% if @action_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@action_log.errors.count, "error") %> prohibited this action_log from being saved:</h2>
+
+      <ul>
+      <% @action_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :project_id %><br>
+    <%= f.collection_select :project_id, Project.all, :id, :name, {:prompt => '-- 案件'}, {:required => true} %>
+  </div>
+  <div class="field">
+    <%= f.label :took_time %><br>
+    <%= f.number_field :took_time, :class => '', :step => 0.5, :required => true %>
+  </div>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

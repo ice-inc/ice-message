@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :action_logs
+  resources :projects
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
   resources :posts
   # The priority is based upon order of creation: first created -> highest priority.
