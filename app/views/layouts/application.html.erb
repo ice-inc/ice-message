@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IceLog</title>
+  <title>Ice</title>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -10,14 +10,7 @@
 </head>
 <body>
 	<header>
-		<nav>
-			<% if user_signed_in? %>
-			<strong></strong>
-			<% else %>
-			<%= link_to 'サインアップ', new_user_registration_path %>
-			<%= link_to 'ログイン', new_user_session_path %>
-			<% end %>
-		<% if user_signed_in? %>
+	<% if user_signed_in? %>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -27,32 +20,10 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<%= link_to 'Ice Systems', posts_path, :class => 'navbar-brand' %>
+					<%= link_to 'Ice', action_logs_path, :class => 'navbar-brand' %>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="<%= projects_path == url_for() ? 'active' : nil %>"><%= link_to '案件マスタ', projects_path %></li>
-						<li class="<%= action_logs_path == url_for() ? 'active' : nil %>"><%= link_to '稼働ログ', action_logs_path %></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -65,34 +36,26 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-		<% end %>
 	</header>
+	<% end %>
 	<div class="container-fluid">
+		<% if user_signed_in? %>
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Reports</a></li>
-					<li><a href="#">Analytics</a></li>
-					<li><a href="#">Export</a></li>
-				</ul>
-				<ul class="nav nav-sidebar">
-					<li><a href="">Nav item</a></li>
-					<li><a href="">Nav item again</a></li>
-					<li><a href="">One more nav</a></li>
-					<li><a href="">Another nav item</a></li>
-					<li><a href="">More navigation</a></li>
-				</ul>
-				<ul class="nav nav-sidebar">
-					<li><a href="">Nav item again</a></li>
-					<li><a href="">One more nav</a></li>
-					<li><a href="">Another nav item</a></li>
+					<li class="<%= projects_path == url_for() ? 'active' : nil %>"><%= link_to '案件マスタ', projects_path %></li>
+					<li class="<%= action_logs_path == url_for() ? 'active' : nil %>"><%= link_to '稼働ログ', action_logs_path %></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<%= yield %>
 			</div>
 		</div>
+		<% else %>
+			<div class="">
+				<%= yield %>
+			</div>
+		<% end %>
 	</div>
 </body>
 </html>
