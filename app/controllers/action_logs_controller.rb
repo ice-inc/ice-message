@@ -1,4 +1,5 @@
 class ActionLogsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_action_log, only: [:show, :edit, :update, :destroy]
 
   # GET /action_logs
