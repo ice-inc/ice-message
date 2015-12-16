@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :target_date %><br>
-    <%= f.date_field :target_date, :class => '', :value => Date.today, :required => true %>
+    <%= f.date_field :target_date, :class => '', :value => (@action_log.target_date || Date.today).strftime("%Y-%m-%d"), :required => true %>
   </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">
