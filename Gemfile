@@ -52,3 +52,5 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rbenv', github: "capistrano/rbenv"
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
