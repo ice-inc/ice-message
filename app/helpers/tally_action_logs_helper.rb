@@ -1,0 +1,2 @@
+module TallyActionLogsHelper
+end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :projects
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
   resources :posts
+  resources :tally_action_logs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

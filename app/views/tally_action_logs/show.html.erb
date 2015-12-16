@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_tag(tally_action_log_path(@project), method: "get") do %>
+  <%= month_field_tag 'target_date'%>
+
+  <%= submit_tag '検索' %>
+<% end %>
+
+<h1><%= @project.name %></h1>
+<h2><%= @year %>年<%= @month %>月の稼働実績だよ☆</h2>
+<p><%= @total_time %></p>
+
+<%= link_to 'Back', tally_action_logs_path %>

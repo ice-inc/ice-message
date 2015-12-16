@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>案件別稼働時間</h1>
+
+<p>案件を選択して下さい</p>
+<table>
+  <thead>
+    <tr>
+      <th>案件名</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= link_to '稼働時間を見る', tally_action_log_path(project) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
