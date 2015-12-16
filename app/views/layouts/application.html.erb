@@ -45,6 +45,7 @@
 				<ul class="nav nav-sidebar">
 					<li class="<%= projects_path == url_for() ? 'active' : nil %>"><%= link_to '案件マスタ', projects_path %></li>
 					<li class="<%= action_logs_path == url_for() ? 'active' : nil %>"><%= link_to '稼働ログ', action_logs_path %></li>
+					<li class="<%= tally_action_logs_path == url_for() ? 'active' : nil %>"><%= link_to '案件別稼働時間', tally_action_logs_path %></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
