@@ -5,7 +5,7 @@ class ActionLogsController < ApplicationController
   # GET /action_logs
   # GET /action_logs.json
   def index
-    @action_logs = ActionLog.all
+    @action_logs = ActionLog.where(user_id: current_user.id)
   end
 
   # GET /action_logs/1
