@@ -9,6 +9,7 @@ $ ->
   }, (json) ->
     events = []
     for i,v of json
+      v.start = new Date(v.start);
       events[i] = v
     $('#action-log-cal').fullCalendar({
       titleFormat:
