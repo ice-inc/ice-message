@@ -4,6 +4,18 @@ class TallyActionLogsController < ApplicationController
   # GET /tally_action_logs
   # GET /tally_action_logs.json
   def index
+    target_date = params['target_date']
+    if(target_date.blank?) then
+      target_date = Date.today.strftime('%Y-%m')
+    end
+
+    target_dates = target_date.split("-")
+    @year = target_dates[0]
+    @month = target_dates[1]
+
+    @from = Date.new(@year.to_i, @month.to_i, 1)
+    @to = @from.end_of_month
+
     @projects = Project.all
   end
 
@@ -17,7 +29,6 @@ class TallyActionLogsController < ApplicationController
     target_dates = target_date.split("-")
     @year = target_dates[0]
     @month = target_dates[1]
-    logger.debug target_dates
     from = Date.new(@year.to_i, @month.to_i, 1)
     to = from.end_of_month
     @total_time = @project.getTotalTime(from, to)

@@ -2,11 +2,18 @@
 
 <h1>案件別稼働時間</h1>
 
-<p>案件を選択して下さい</p>
-<table>
+<%= form_tag(tally_action_logs_path, method: "get") do %>
+  <%= month_field_tag 'target_date', @year+'-'+@month %>
+  <%= submit_tag '検索' %>
+<% end %>
+
+<h2><%= @year %>年<%= @month %>月の稼働実績</h2>
+
+<table class='table'>
   <thead>
     <tr>
       <th>案件名</th>
+      <th>合計稼働時間</th>
     </tr>
   </thead>
 
@@ -14,7 +21,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.name %></td>
-        <td><%= link_to '稼働時間を見る', tally_action_log_path(project) %></td>
+        <td><%= project.getTotalTime(@from, @to) %></td>
       </tr>
     <% end %>
   </tbody>
