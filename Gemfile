@@ -54,3 +54,4 @@ gem 'capistrano-bundler'
 gem 'capistrano-rbenv', github: "capistrano/rbenv"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'jquery-turbolinks'
